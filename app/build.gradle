@@ -1,0 +1,77 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.thevalet.app"
+        minSdkVersion 16
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            android.applicationVariants.all { variant ->
+                variant.outputs.all {
+                    outputFileName = "TheValet"
+                    outputFileName += "_v" + android.defaultConfig.versionName
+                    if (variant.buildType.name == "release") {
+                        outputFileName += "_release.apk"
+                    } else {
+                        outputFileName += "_debug.apk"
+                    }
+                }
+            }
+        }
+    }
+    dataBinding {
+        enabled = true
+    }
+}
+ext {
+    supportLibraryVersion = '28.0.0'
+    retrofitVersion = '2.4.0'
+    lifecycleVersion = '1.1.1'
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.aar', '*.jar'], exclude: [])
+    //support library
+    implementation "com.android.support:appcompat-v7:$supportLibraryVersion"
+    implementation "com.android.support:design:$supportLibraryVersion"
+    implementation "com.android.support:recyclerview-v7:$supportLibraryVersion"
+
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+
+    //reactive
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
+
+    //retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.10.0'
+    //parser
+    implementation 'com.google.code.gson:gson:2.8.5'
+    //image
+    implementation 'com.github.bumptech.glide:glide:4.8.0'
+
+    //dimen
+    implementation 'com.intuit.sdp:sdp-android:1.0.6'
+    implementation 'org.greenrobot:eventbus:3.1.1'
+
+    /* LiveData lib*/
+    implementation "android.arch.lifecycle:extensions:$lifecycleVersion"
+    implementation "android.arch.lifecycle:runtime:$lifecycleVersion"
+    annotationProcessor "android.arch.lifecycle:compiler:$lifecycleVersion"
+
+    implementation "android.arch.persistence.room:runtime:$lifecycleVersion"
+
+    annotationProcessor "android.arch.persistence.room:compiler:$lifecycleVersion"
+
+    // optional - RxJava support for Room
+    implementation "android.arch.persistence.room:rxjava2:$lifecycleVersion"
+}

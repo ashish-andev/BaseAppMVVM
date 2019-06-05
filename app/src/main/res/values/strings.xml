@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">TheValet</string>
+    <string name="configuration">Configuration</string>
+    <string name="confirm_location">Confirm location</string>
+    <string name="select_location_where_you_want_to_setup_this_application">Select location where you want to setup this
+        application
+    </string>
+    <string name="forms">Forms</string>
+    <string name="complementary">Complementary</string>
+    <string name="information">Information</string>
+
+</resources>
