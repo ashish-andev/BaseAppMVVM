@@ -8,8 +8,8 @@
         <import type="android.view.View" />
 
         <variable
-            name="compTypesOption"
-            type="com.example.app.data.model.DummyModel" />
+            name="repo"
+            type="com.example.app.data.model.Repository" />
     </data>
 
 
@@ -19,25 +19,15 @@
         android:layout_height="wrap_content"
         android:background="@color/white">
 
-        <ImageView
-            android:id="@+id/ivChecked"
-            android:layout_width="@dimen/_13sdp"
-            android:layout_height="@dimen/_13sdp"
-            android:layout_marginLeft="@dimen/_10sdp"
-            android:background="@drawable/types_option_checkbox"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <TextView
             android:id="@+id/tvName"
             style="@style/TextStyle.Medium"
             android:layout_marginLeft="@dimen/_8sdp"
             android:layout_marginTop="@dimen/_9sdp"
             android:layout_marginRight="@dimen/_5sdp"
-            android:text="@{compTypesOption.name}"
+            android:text="@{repo.name}"
             android:textSize="@dimen/_8sdp"
-            app:layout_constraintLeft_toRightOf="@+id/ivChecked"
+            app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Hello world" />
 

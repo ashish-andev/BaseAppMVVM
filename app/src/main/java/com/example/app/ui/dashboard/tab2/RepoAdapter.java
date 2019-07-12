@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.app.data.model.DummyModel;
+import com.example.app.data.model.Repository;
 import com.example.app.databinding.ItemListBinding;
 import com.example.app.ui.base.BaseViewHolder;
 
@@ -16,17 +16,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class DummyAdapter extends RecyclerView.Adapter<BaseViewHolder> {
-    private List<DummyModel> itemList = new ArrayList<>();
+public class RepoAdapter extends RecyclerView.Adapter<BaseViewHolder> {
+    private List<Repository> itemList = new ArrayList<>();
 
-    DummyAdapter() {
+    RepoAdapter() {
     }
 
     public void clearItems() {
         itemList.clear();
     }
 
-    public void addItems(List<DummyModel> medicines) {
+    public void addItems(List<Repository> medicines) {
         this.itemList.addAll(medicines);
         notifyDataSetChanged();
     }
@@ -66,8 +66,8 @@ public class DummyAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
         @Override
         public void onBind(int position) {
-            DummyModel compTypesOption = itemList.get(position);
-            mBinding.setCompTypesOption(compTypesOption);
+            Repository repository = itemList.get(position);
+            mBinding.setRepo(repository);
             mBinding.executePendingBindings();
         }
 

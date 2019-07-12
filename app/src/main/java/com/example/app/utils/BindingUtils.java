@@ -7,8 +7,8 @@ import androidx.databinding.BindingAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.app.data.model.DummyModel;
-import com.example.app.ui.dashboard.tab2.DummyAdapter;
+import com.example.app.data.model.Repository;
+import com.example.app.ui.dashboard.tab2.RepoAdapter;
 
 import java.util.List;
 
@@ -31,8 +31,8 @@ public final class BindingUtils {
     }
 
     @BindingAdapter("dummyAdapter")
-    public static void dummyAdapter(RecyclerView recyclerView, List<DummyModel> list) {
-        DummyAdapter adapter = (DummyAdapter) recyclerView.getAdapter();
+    public static void dummyAdapter(RecyclerView recyclerView, List<Repository> list) {
+        RepoAdapter adapter = (RepoAdapter) recyclerView.getAdapter();
         if (adapter != null) {
             adapter.clearItems();
             adapter.addItems(list);

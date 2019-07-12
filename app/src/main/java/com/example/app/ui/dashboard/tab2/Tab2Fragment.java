@@ -49,11 +49,11 @@ public class Tab2Fragment extends BaseFragment<FragmentTab2Binding,
         super.onViewCreated(view, savedInstanceState);
         mBinding = getViewDataBinding();
         setUpRecyclerView();
-        mViewModel.getTypes();
+        mViewModel.getRepositories();
     }
 
     private void setUpRecyclerView() {
-        DummyAdapter adapter = new DummyAdapter();
+        RepoAdapter adapter = new RepoAdapter();
         mBinding.recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mBinding.recyclerView.setAdapter(adapter);
     }
